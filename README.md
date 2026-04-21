@@ -1,4 +1,4 @@
-# 🤖 AI Coding Assistant: Workshop Prompt Cheat Sheet
+# 🤖 Module: AI Coding Assistant: Workshop Prompt Cheat Sheet
 
 Welcome to the prompt testing lab! In your IDE, use the Continue chat panel to tag specific files in this repository (type `@` followed by the filename) and ask the AI these questions to see how it handles real-world developer tasks.
 
