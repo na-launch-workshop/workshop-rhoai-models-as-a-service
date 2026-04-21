@@ -1,9 +1,9 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: openshift-ai-maas-workshop
+  name: workshop-openshift-ai-maas
   title: OpenShift AI Models-as-a-Service Workshop
-  description: A 20-minute Python lab connecting to a private Granite LLM on OpenShift AI.
+  description: A 20-minute Python lab connecting to a private Granite LLM on OpenShift AI
   tags:
     - python
     - ai
