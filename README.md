@@ -1,32 +1,79 @@
-# 🤖 Module: AI Coding Assistant: Workshop Prompt Cheat Sheet
+# 🤖 Module: AI-Powered Debugging with Granite on OpenShift AI
 
-**Technology Stack:**
-
-- Red Hat OpenShift AI
-- java
-- python
+**Technology Stack:** OpenShift AI · vLLM · Granite 8B · Continue Extension · Python · Java 17
 
 ---
 
-## 🎯 **Scenario**
+## 🎯 Scenario
 
-Welcome to the prompt testing lab! In your IDE, use the Continue chat panel to tag specific files in this repository (type `@` followed by the filename) and ask the AI these questions to see how it handles real-world developer tasks.
+Use the **Granite 8B** AI model running in-cluster to debug a broken Java HTTP client. A working session looks like this:
 
-### 1. Code Explanation (Understand the Repo)
-* `@terminal_chatbot.py` - *"Explain how the main chat loop works in this file. How does it wait for user input?"*
-* `@setup.sh` - *"Explain what this bash script is doing step-by-step. What environment variables or installations is it configuring?"*
-* `@devfile.yaml` - *"What is a devfile used for, and what specific environment is this one spinning up?"*
+```
+$ javac BrokenJavaChatAgent.java && java BrokenJavaChatAgent
 
-### 2. Refactoring & Enhancements (Write New Code)
-* `@terminal_chatbot.py` - *"Add a new feature to this script that automatically saves the entire chat history to a local `chat_log.txt` file when the user exits."*
-* `@terminal_chatbot.py` - *"Refactor this code to add colorized terminal output (e.g., make the user's text green and the bot's text blue)."*
-* `@setup.sh` - *"Rewrite this bash script to include a check that ensures Python 3 is installed before it tries to run the rest of the commands."*
+--- AI Response ---
+Status Code: 200
+{"choices":[{"message":{"content":"Code flows like stream\nMethods compile, errors clear\nJava brings me peace"}}]}
+```
 
-### 3. Debugging & Security (Find the Flaws)
-* `@requirements.txt` - *"Explain what these dependencies are used for. Are there any known security best practices I should keep in mind when using them?"*
-* `@terminal_chatbot.py` - *"What happens if the API endpoint or model connection fails? Write a `try/except` block to gracefully handle connection errors so the script doesn't crash."*
-* `@catalog-info.yaml` - *"Check this YAML file for any syntax errors or missing required fields based on standard Backstage/Developer Portal formatting."*
+---
 
-### 4. Documentation & Testing
-* `@terminal_chatbot.py` - *"Generate professional Python docstrings for every function in this file."*
-* `@terminal_chatbot.py` - *"Write a simple `pytest` unit test for this file to mock the API response and ensure the chatbot logic processes the text correctly."*
+## 🔌 Install the Continue Extension
+
+Right-click `continue-offline.vsix` in the file explorer and select **"Install Extension VSIX"**.
+
+Once installed, the Continue icon will appear in the left sidebar — it's already pointed at the Granite model.
+
+---
+
+## 🐍 Start the Terminal Chatbot
+
+```bash
+python terminal_chatbot.py
+```
+
+Try a few prompts:
+
+```
+You: Explain what a REST API is in one sentence
+You: Write a Python function that reverses a string
+You: What's the difference between GET and POST?
+You: What does HTTP status code 405 mean?
+You: Why would a Java program fail SSL certificate validation?
+You: What is the OpenAI chat completions API endpoint?
+```
+
+Press `Ctrl+C` to exit.
+
+---
+
+## ☕ Java Debugging Exercise
+
+`BrokenJavaChatAgent.java` has **7 intentional bugs**. Compile and run it, then use the Continue extension or the Terminal Chatbot to diagnose each error — one at a time.
+
+```bash
+javac BrokenJavaChatAgent.java && java BrokenJavaChatAgent
+```
+
+Paste errors into Continue like this:
+
+```
+I'm getting this error:
+[paste error here]
+
+Here's the relevant code:
+[paste 5-10 lines]
+
+What's wrong and how do I fix it?
+```
+
+Fix, recompile, repeat until you get a `Status Code: 200`.
+
+---
+
+## 💬 Using Continue
+
+- **Open chat** — click the Continue icon in the sidebar
+- **Reference a file** — type `@BrokenJavaChatAgent.java` in your prompt
+- **Ask about selected code** — highlight lines, right-click → **"Continue: Ask about selection"**
+- **Reset context** — click **New Chat** between bugs to avoid hitting token limits
