@@ -1,4 +1,4 @@
-# 🤖 Module: AI-Powered Debugging with Granite on OpenShift AI
+# 🤖 Module: AI-Powered Debugging with Models-as-a-Service on OpenShift AI
 
 **Technology Stack:** OpenShift AI · vLLM · Granite 8B · Continue Extension · Python · Java 17
 
