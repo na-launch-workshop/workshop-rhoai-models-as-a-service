@@ -9,28 +9,28 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
 public class JavaChatAgent {
-    private static final String BASE_URL = System.getenv().getOrDefault("OPENAI_BASE_URL", "http://localhost:8080/v1");
+    private static final String BASE_URL = System.getenv().getOrDefault("OPENAI_BASE_URL", "http://localhost:8080");
     private static final String API_KEY = System.getenv().getOrDefault("OPENAI_API_KEY", "dummy-workshop-key");
-    private static final String API_URL = BASE_URL + "/chat/completions";
+    private static final String API_URL = BASE_URL + "/completions";
 
     public static void main(String[] args) {
         String prompt = "Write a short haiku about coding in Java.";
-        
+
         String jsonPayload = """
             {
                 "model": "granite-8b-code-instruct",
                 "messages": [
                     {
                         "role": "user",
-                        "content": "%s"
+                        "content": "%s",
                     }
                 ],
-                "max_tokens": 150
+                "max_tokens": 150,
             }
             """.formatted(prompt);
 
         try {
-            // 1. Create a TrustManager that blindly trusts all certificates
+            // SSL bypass code for OpenShift internal certificates
             TrustManager[] trustAllCerts = new TrustManager[]{
                 new X509TrustManager() {
                     public X509Certificate[] getAcceptedIssuers() { return null; }
@@ -38,32 +38,28 @@ public class JavaChatAgent {
                     public void checkServerTrusted(X509Certificate[] certs, String authType) {}
                 }
             };
-            
-            // 2. Initialize a custom SSL context with our permissive TrustManager
+
             SSLContext insecureContext = SSLContext.getInstance("TLS");
             insecureContext.init(null, trustAllCerts, new SecureRandom());
 
-            // 3. Attach the insecure SSL context to the Java HttpClient
             HttpClient client = HttpClient.newBuilder()
-                    .sslContext(insecureContext)
                     .build();
 
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(API_URL))
                     .header("Content-Type", "application/json")
-                    .header("Authorization", "Bearer " + API_KEY)
-                    .POST(HttpRequest.BodyPublishers.ofString(jsonPayload))
+                    .GET()
                     .build();
 
             System.out.println("Sending request to Granite model...");
             System.out.println("Endpoint: " + API_URL);
 
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            
+
             System.out.println("\n--- AI Response ---");
             System.out.println("Status Code: " + response.statusCode());
             System.out.println("Raw Body: \n" + response.body());
-            
+
         } catch (Exception e) {
             System.out.println("Connection Error: " + e.getMessage());
             e.printStackTrace();
