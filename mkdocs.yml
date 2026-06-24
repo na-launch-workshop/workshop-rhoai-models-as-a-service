@@ -1,5 +1,5 @@
-site_name: AI Chatbot Workshop
-site_description: Documentation for the AI MaaS Workshop Python and Java chatbots
+site_name: OpenShift AI MaaS Workshop
+site_description: Build an AI app using Models as a Service and Red Hat OpenShift AI
 
 nav:
   - Overview: index.md

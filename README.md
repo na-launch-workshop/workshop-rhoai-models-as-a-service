@@ -1,6 +1,15 @@
 # 🤖 Module: AI-Powered Debugging with Models-as-a-Service on OpenShift AI
 
-**Technology Stack:** OpenShift AI · vLLM · Granite 8B · Continue Extension · Python · Java 17
+Build a real AI-powered application using a Model-as-a-Service (MaaS) approach, integrating external and enterprise-hosted models into a cloud-native workflow. Participants will learn how to rapidly connect to AI services, design effective prompts, and incorporate intelligent features directly into their applications. Explore how MaaS enables teams to move fast without managing complex model training pipelines, while still delivering meaningful, production-ready capabilities.
+
+**Technology Stack:**
+
+- OpenShift AI
+- vLLM
+- Granite 8B
+- Continue Extension
+- Python
+- Java 17
 
 ---
 
