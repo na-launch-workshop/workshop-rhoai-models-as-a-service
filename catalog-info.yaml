@@ -16,7 +16,7 @@ metadata:
     - ai
     - workshop
   links:
-    - url: https://devspaces.apps.rosa.rosa-rb2ll.unde.p3.openshiftapps.com%/#https://github.com/na-launch-workshop/workshop-rhoai-models-as-a-service
+    - url: https://devspaces.apps.rosa.rosa-rb2ll.unde.p3.openshiftapps.com/#https://github.com/na-launch-workshop/workshop-rhoai-models-as-a-service
       title: 🚀 Open in Dev Spaces
       icon: cloud
 spec:
