@@ -29,8 +29,8 @@ cat <<EOF > ~/.continue/config.json
     {
       "title": "Granite 8B Code (Chat)",
       "provider": "openai",
-      "model": "granite-8b-code-base",
-      "apiBase": "http://workshop-maas-gateway-data-science-gateway-class.workshop-maas.svc.cluster.local/workshop-maas/granite-8b-code-base/v1",
+      "model": "granite-8b-code-instruct",
+      "apiBase": "http://workshop-maas-gateway-data-science-gateway-class.workshop-maas.svc.cluster.local/workshop-maas/granite-8b-code-instruct/v1",
       "apiKey": "dummy-key",
       "contextLength": 8192,
       "completionOptions": {
@@ -41,8 +41,8 @@ cat <<EOF > ~/.continue/config.json
   "tabAutocompleteModel": {
     "title": "Granite 8B Autocomplete",
     "provider": "openai",
-    "model": "granite-8b-code-base",
-    "apiBase": "http://workshop-maas-gateway-data-science-gateway-class.workshop-maas.svc.cluster.local/workshop-maas/granite-8b-code-base/v1",
+    "model": "granite-8b-code-instruct",
+    "apiBase": "http://workshop-maas-gateway-data-science-gateway-class.workshop-maas.svc.cluster.local/workshop-maas/granite-8b-code-instruct/v1",
     "apiKey": "dummy-key",
     "contextLength": 8192,
     "completionOptions": {

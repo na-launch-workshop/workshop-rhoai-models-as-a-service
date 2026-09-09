@@ -15,7 +15,7 @@ components:
         - name: OPENAI_BASE_URL
           value: "http://workshop-maas-gateway-data-science-gateway-class.workshop-maas.svc.cluster.local/workshop-maas/redhataiqwen36-35b-a3b-nvfp4/v1"
         - name: GRANITE_BASE_URL
-          value: "http://workshop-maas-gateway-data-science-gateway-class.workshop-maas.svc.cluster.local/workshop-maas/granite-8b-code-base/v1"
+          value: "http://workshop-maas-gateway-data-science-gateway-class.workshop-maas.svc.cluster.local/workshop-maas/granite-8b-code-instruct/v1"
         - name: OPENAI_API_KEY
           value: "dummy-workshop-key"
         - name: NODE_TLS_REJECT_UNAUTHORIZED
