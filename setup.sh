@@ -11,15 +11,15 @@ wget -q -nc https://github.com/continuedev/continue/releases/download/v1.2.22-vs
 # 3. Create the Continue.dev configuration directory
 mkdir -p ~/.continue
 
-# 4. Inject the configuration file to point to your internal GPU pod
+# 4. Inject the configuration file to point to the model endpoint
 cat <<EOF > ~/.continue/config.json
 {
   "models": [
     {
-      "title": "granite-8b-code-instruct",
+      "title": "redhataiqwen36-35b-a3b-nvfp4",
       "provider": "openai",
-      "model": "granite-8b-code-instruct",
-      "apiBase": "https://granite-8b-code-instruct.workshop-maas.svc.cluster.local/v1",
+      "model": "redhataiqwen36-35b-a3b-nvfp4",
+      "apiBase": "http://workshop-maas-gateway-data-science-gateway-class.workshop-maas.svc.cluster.local/workshop-maas/redhataiqwen36-35b-a3b-nvfp4/v1",
       "apiKey": "dummy-key",
       "contextLength": 4096,
       "completionOptions": {
@@ -30,8 +30,8 @@ cat <<EOF > ~/.continue/config.json
   "tabAutocompleteModel": {
     "title": "Workshop Autocomplete",
     "provider": "openai",
-    "model": "granite-8b-code-instruct",
-    "apiBase": "https://granite-8b-code-instruct.workshop-maas.svc.cluster.local/v1",
+    "model": "redhataiqwen36-35b-a3b-nvfp4",
+    "apiBase": "http://workshop-maas-gateway-data-science-gateway-class.workshop-maas.svc.cluster.local/workshop-maas/redhataiqwen36-35b-a3b-nvfp4/v1",
     "apiKey": "dummy-key",
     "contextLength": 4096,
     "completionOptions": {
