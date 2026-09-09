@@ -21,9 +21,9 @@ cat <<EOF > ~/.continue/config.json
       "model": "redhataiqwen36-35b-a3b-nvfp4",
       "apiBase": "http://workshop-maas-gateway-data-science-gateway-class.workshop-maas.svc.cluster.local/workshop-maas/redhataiqwen36-35b-a3b-nvfp4/v1",
       "apiKey": "dummy-key",
-      "contextLength": 4096,
+      "contextLength": 32768,
       "completionOptions": {
-        "maxTokens": 1024
+        "maxTokens": 4096
       }
     }
   ],
@@ -33,9 +33,9 @@ cat <<EOF > ~/.continue/config.json
     "model": "redhataiqwen36-35b-a3b-nvfp4",
     "apiBase": "http://workshop-maas-gateway-data-science-gateway-class.workshop-maas.svc.cluster.local/workshop-maas/redhataiqwen36-35b-a3b-nvfp4/v1",
     "apiKey": "dummy-key",
-    "contextLength": 4096,
+    "contextLength": 32768,
     "completionOptions": {
-      "maxTokens": 256
+      "maxTokens": 1024
     }
   },
   "allowAnonymousTelemetry": false
