@@ -11,12 +11,12 @@ wget -q -nc https://github.com/continuedev/continue/releases/download/v1.2.22-vs
 # 3. Create the Continue.dev configuration directory
 mkdir -p ~/.continue
 
-# 4. Inject the configuration file to point to the model endpoint
+# 4. Inject the configuration file with both models
 cat <<EOF > ~/.continue/config.json
 {
   "models": [
     {
-      "title": "redhataiqwen36-35b-a3b-nvfp4",
+      "title": "Qwen 3.6 35B (Chat)",
       "provider": "openai",
       "model": "redhataiqwen36-35b-a3b-nvfp4",
       "apiBase": "http://workshop-maas-gateway-data-science-gateway-class.workshop-maas.svc.cluster.local/workshop-maas/redhataiqwen36-35b-a3b-nvfp4/v1",
@@ -25,15 +25,26 @@ cat <<EOF > ~/.continue/config.json
       "completionOptions": {
         "maxTokens": 8192
       }
+    },
+    {
+      "title": "Granite 8B Code (Chat)",
+      "provider": "openai",
+      "model": "granite-8b-code-base",
+      "apiBase": "http://workshop-maas-gateway-data-science-gateway-class.workshop-maas.svc.cluster.local/workshop-maas/granite-8b-code-base/v1",
+      "apiKey": "dummy-key",
+      "contextLength": 8192,
+      "completionOptions": {
+        "maxTokens": 4096
+      }
     }
   ],
   "tabAutocompleteModel": {
-    "title": "Workshop Autocomplete",
+    "title": "Granite 8B Autocomplete",
     "provider": "openai",
-    "model": "redhataiqwen36-35b-a3b-nvfp4",
-    "apiBase": "http://workshop-maas-gateway-data-science-gateway-class.workshop-maas.svc.cluster.local/workshop-maas/redhataiqwen36-35b-a3b-nvfp4/v1",
+    "model": "granite-8b-code-base",
+    "apiBase": "http://workshop-maas-gateway-data-science-gateway-class.workshop-maas.svc.cluster.local/workshop-maas/granite-8b-code-base/v1",
     "apiKey": "dummy-key",
-    "contextLength": 65536,
+    "contextLength": 8192,
     "completionOptions": {
       "maxTokens": 2048
     }
