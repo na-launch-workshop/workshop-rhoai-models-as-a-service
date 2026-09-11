@@ -32,9 +32,9 @@ cat <<EOF > ~/.continue/config.json
       "model": "granite-8b-code-instruct",
       "apiBase": "http://workshop-maas-gateway-data-science-gateway-class.workshop-maas.svc.cluster.local/workshop-maas/granite-8b-code-instruct/v1",
       "apiKey": "dummy-key",
-      "contextLength": 8192,
+      "contextLength": 4096,
       "completionOptions": {
-        "maxTokens": 4096
+        "maxTokens": 1024
       }
     }
   ],
@@ -44,9 +44,9 @@ cat <<EOF > ~/.continue/config.json
     "model": "granite-8b-code-instruct",
     "apiBase": "http://workshop-maas-gateway-data-science-gateway-class.workshop-maas.svc.cluster.local/workshop-maas/granite-8b-code-instruct/v1",
     "apiKey": "dummy-key",
-    "contextLength": 8192,
+    "contextLength": 4096,
     "completionOptions": {
-      "maxTokens": 2048
+      "maxTokens": 512
     }
   },
   "allowAnonymousTelemetry": false
